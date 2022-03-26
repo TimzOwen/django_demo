@@ -12,4 +12,4 @@ def addition(request):
     val2 = int(request.GET["num2"])
     res = val2 + val1
 
-    return render(request, 'results.html', {'result': res})
+    return render(request, 'result.html', {'result': res})
