@@ -1,0 +1,28 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to the home page !! </h1>
+    <p>This is python testing django</p>
+    <h1>Welcome  to django {{name}}</h1>
+
+    <form action="add">
+
+        Enter 1st number: <input type="text" name="num1"><br>
+        Enter 2nd number : <input type="text" name="num2"><br>
+        <input type="submit">
+
+    </form>
+</body>
+</html>
+
+{% endblock %}
