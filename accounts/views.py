@@ -3,7 +3,10 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 
-# Create your views here.
+def login(request):
+    pass
+
+
 def register(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
@@ -26,7 +29,7 @@ def register(request):
                 user.save()
                 print("User Created successfully......")
         else:
-            messages.info(request,'Password not matching')
+            messages.info(request, 'Password not matching')
             return redirect('register')
         return redirect('/')
     else:
