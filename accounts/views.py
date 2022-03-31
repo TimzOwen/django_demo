@@ -4,7 +4,20 @@ from django.contrib import messages
 
 
 def login(request):
-    pass
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username,password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect("/")
+        else:
+            messages.info(request, 'invalid credentials')
+            return redirect("/")
+    else:
+        return render(request,'login.html')
 
 
 def register(request):
@@ -28,6 +41,7 @@ def register(request):
                                                 first_name=first_name, last_name=last_name)
                 user.save()
                 print("User Created successfully......")
+                return redirect('login')
         else:
             messages.info(request, 'Password not matching')
             return redirect('register')
